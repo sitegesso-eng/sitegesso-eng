@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gesseiro Profissional</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <img src="logo.png" class="logo">
+  <h1>Gesseiro Profissional</h1>
+  <p>
+    Serviços em gesso com acabamento profissional<br>
+    Atendimento em todo o estado de Pernambuco
+  </p>
+
+  <a class="btn" href="https://wa.me/558191669076" target="_blank">
+    Falar no WhatsApp
+  </a>
+</header>
+
+<section class="sobre">
+  <h2>Sobre</h2>
+  <p>
+    Trabalhamos com serviços completos em gesso para residências e comércios,
+    sempre com qualidade, compromisso e excelente acabamento.
+  </p>
+</section>
+
+<section class="servicos">
+  <h2>Serviços</h2>
+
+  <!-- REBAIXAMENTO -->
+  <div class="servico-item">
+    <p>✔ Rebaixamento de teto</p>
+    <div class="carousel">
+      <div class="carousel-images">
+        <img src="rebaixamento1.jpg" class="slide active">
+        <img src="rebaixamento2.jpg" class="slide">
+        <img src="rebaixamento3.jpg" class="slide">
+        <img src="rebaixamento4.jpg" class="slide">
+      </div>
+      <div class="dots"></div>
+    </div>
+  </div>
+
+  <!-- TETO COM DETALHE -->
+  <div class="servico-item">
+    <p>✔ Teto com detalhe</p>
+    <div class="carousel">
+      <div class="carousel-images">
+        <img src="teto1.jpg" class="slide active">
+        <img src="teto2.jpg" class="slide">
+        <img src="teto3.jpg" class="slide">
+        <img src="teto4.jpg" class="slide">
+        <img src="teto5.jpg" class="slide">
+        <img src="teto6.jpg" class="slide">
+      </div>
+      <div class="dots"></div>
+    </div>
+  </div>
+
+  <!-- SANCA -->
+  <div class="servico-item">
+    <p>✔ Sanca</p>
+    <div class="carousel">
+      <div class="carousel-images">
+        <img src="sanca1.jpg" class="slide active">
+        <img src="sanca2.jpg" class="slide">
+        <img src="sanca3.jpg" class="slide">
+        <img src="sanca4.jpg" class="slide">
+      </div>
+      <div class="dots"></div>
+    </div>
+  </div>
+
+  <!-- DRYWALL -->
+  <div class="servico-item">
+    <p>✔ Drywall</p>
+    <div class="carousel">
+      <div class="carousel-images">
+        <img src="drywall1.jpg" class="slide active">
+        <img src="drywall2.jpg" class="slide">
+        <img src="drywall3.jpg" class="slide">
+      </div>
+      <div class="dots"></div>
+    </div>
+  </div>
+
+  <!-- ESTANTE -->
+  <div class="servico-item">
+    <p>✔ Estante de gesso</p>
+    <div class="carousel">
+      <div class="carousel-images">
+        <img src="estante1.jpg" class="slide active">
+        <img src="estante2.jpg" class="slide">
+      </div>
+      <div class="dots"></div>
+    </div>
+  </div>
+
+  <!-- PAREDE 3D -->
+  <div class="servico-item">
+    <p>✔ Parede 3D</p>
+    <div class="carousel">
+      <div class="carousel-images">
+        <img src="parede3d1.jpg" class="slide active">
+        <img src="parede3d2.jpg" class="slide">
+        <img src="parede3d3.jpg" class="slide">
+        <img src="parede3d4.jpg" class="slide">
+        <img src="parede3d5.jpg" class="slide">
+        <img src="parede3d6.jpg" class="slide">
+        <img src="parede3d7.jpg" class="slide">
+      </div>
+      <div class="dots"></div>
+    </div>
+  </div>
+
+  <!-- MOLDURAS -->
+  <div class="servico-item">
+    <p>✔ Molduras decorativas</p>
+    <div class="carousel">
+      <div class="carousel-images">
+        <img src="moldura1.jpg" class="slide active">
+        <img src="moldura2.jpg" class="slide">
+        <img src="moldura3.jpg" class="slide">
+        <img src="moldura4.jpg" class="slide">
+      </div>
+      <div class="dots"></div>
+    </div>
+  </div>
+
+</section>
+
+<footer>
+  <p>© 2026 – Gesseiro Profissional | Pernambuco</p>
+</footer>
+
+<a href="https://wa.me/558191669076" class="whatsapp-float" target="_blank">
+  <img src="whatsapp.png">
+</a>
+
+<script>
+document.querySelectorAll(".carousel").forEach(carousel => {
+  const slides = carousel.querySelectorAll(".slide");
+  const dotsContainer = carousel.querySelector(".dots");
+  let index = 0;
+  let startX = 0;
+
+  slides.forEach((_, i) => {
+    const dot = document.createElement("span");
+    dot.classList.add("dot");
+    if (i === 0) dot.classList.add("active");
+    dot.addEventListener("click", () => showSlide(i));
+    dotsContainer.appendChild(dot);
+  });
+
+  const dots = dotsContainer.querySelectorAll(".dot");
+
+  function showSlide(n) {
+    slides.forEach(s => s.classList.remove("active"));
+    dots.forEach(d => d.classList.remove("active"));
+    index = (n + slides.length) % slides.length;
+    slides[index].classList.add("active");
+    dots[index].classList.add("active");
+  }
+
+  carousel.addEventListener("touchstart", e => {
+    startX = e.touches[0].clientX;
+  });
+
+  carousel.addEventListener("touchend", e => {
+    const endX = e.changedTouches[0].clientX;
+    const diff = startX - endX;
+    if (diff > 50) showSlide(index + 1);
+    if (diff < -50) showSlide(index - 1);
+  });
+});
+</script>
+
+</body>
+</html>

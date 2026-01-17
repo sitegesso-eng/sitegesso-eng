@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solicitar Orçamento</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>Solicitar Orçamento</h1>
+  <a href="index.html" class="btn">Voltar</a>
+</header>
+
+<section class="orcamento" id="orcamento">
+  <h2>Orçamento Online</h2>
+
+  <label>Serviço</label>
+  <select id="servico">
+    <option value="Forro de gesso">Forro de gesso</option>
+    <option value="Sanca">Sanca</option>
+    <option value="Drywall">Drywall</option>
+    <option value="Rebaixamento de teto">Rebaixamento de teto</option>
+  </select>
+
+  <label>Metragem (m²)</label>
+  <input type="number" id="metragem">
+
+  <button onclick="calcularOrcamento()">Calcular</button>
+
+  <div id="resultado"></div>
+
+  <a id="btnWhatsapp" class="btn" target="_blank" style="display:none;">
+    Fechar no WhatsApp
+  </a>
+</section>
+
+<script>
+  // Mesmo JS do index
+</script>
+
+</body>
+</html>
